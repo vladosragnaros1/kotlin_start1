@@ -1,0 +1,45 @@
+class InterViewTest{
+    val minscore:Float = 5.0f;
+
+    val questions : Array<Question> = arrayOf(
+            Question("ты знаешь язык пиотон?", 0.5f),
+            Question("ты знаешь что такое условная конструкция?", 1f),
+            Question("ты знаешь как работает оператор if?", 0.5f),
+            Question("ты знаешь кто поет розовое вино?", 3.0f),
+            Question("ты знаешь кто изобрен язык пиотон?", 1.5f),
+            Question("ты знаешь что такое классы?", 0.5f),
+    )
+    fun mainInterView():Float{
+        var score:Float = 0.0f;
+
+        for (question: Question in questions){
+            print(question.getQuestion())
+            var answer = readLine();
+            if (answer == "+"){
+                score += question.getPrice();
+                continue;
+            }
+            if (answer == "-"){
+                continue;
+            }
+            println("you have miss");
+            println("brake program...");
+            break;
+        }
+        return score
+    }
+    fun start(){
+        var score:Float = mainInterView();
+        if (score > minscore){
+            println("you best man and you seccess for this interview");
+            println("GOOD!!!!!");
+        }
+        else{
+            println("Broo, plz learn author pink wine(");
+        }
+    }
+}
+fun main(args:Array<String>){
+    var start = InterViewTest();
+    start.start();
+}
